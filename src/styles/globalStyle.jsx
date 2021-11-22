@@ -20,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
   *::-webkit-scrollbar-thumb {
    background-color: var(--clr-secondary2);
    border-radius: var(--border-radius);
-   border: 1px solid var(--clr-primary2);
 }
 
 @font-face {
@@ -48,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-family: 'FuturaBold';
     font-size: 3rem;
+    color: var(--clr-secondary1);
     margin-top: 100px;
 }
 `

@@ -5,6 +5,7 @@ import { useSpring, animated } from 'react-spring';
 import { FaBars, FaAngleDoubleDown } from 'react-icons/fa';
 
 const AnimatedNav = styled(animated.nav)`
+  z-index: 10;
   position: fixed;
   width: 100%;
   display: flex;
@@ -61,7 +62,7 @@ const MenuLinks = styled.a`
   transition: all .2s ease-in;
  
   &:hover {
-    color: var(--clr-secondary2);
+    color: var(--clr-primary1);
     background: var(--clr-primary2);
     border-radius: var(--border-radius);
     }

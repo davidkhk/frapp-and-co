@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const Container = styled.section`
+const Section = styled.section`
     display: flex;
     justify-content: center;
     height: 500px;
@@ -9,9 +9,9 @@ const Container = styled.section`
 
 const Delivery = () => {
     return (
-        <Container id="delivery">
+        <Section id="delivery">
             <h1>Delivery</h1>
-        </Container>
+        </Section>
     )
 }
 

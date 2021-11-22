@@ -4,13 +4,8 @@ const variables = css`
   :root {
     --clr-primary1: #f0dcbe;
     --clr-primary2: #284169;
-    --clr-secondary1: #5f0709;
-    --clr-secondary2: #FFC069;
-
-    ${'' /* --clr-secondary1: #845460;
-    --clr-primary1: #F3F4ED;
-    --clr-primary2: #6F4C5B;
-    --clr-secondary2: #EAD3CB; */}
+    --clr-secondary1: #FB743E;
+    --clr-secondary2: #FB743E;
 
     --border-radius: 5px;
   }
