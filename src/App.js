@@ -6,6 +6,7 @@ import Shop from './components/sections/shop';
 import Delivery from './components/sections/delivery';
 import Instagram from './components/sections/instagram';
 import Contact from './components/sections/contact';
+import Footer from './components/sections/footer';
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
             <Delivery />
             <Instagram />
             <Contact />
+            <Footer />
         </>
     )
 }

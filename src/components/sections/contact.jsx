@@ -1,19 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import ContactForm from "../contactForm"
+import ContactForm from '../contactForm';
 
 const Section = styled.section`
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    height: 500px;
+
+    h2 {
+        color: var(--clr-primary2)
+
+    }
 `
 
-const Contact = () => {    
+function Contact() {    
     return (
         <Section id="contact">
             <h1>Contato</h1>
+            <h2>Tem alguma pergunta ou quer dar um alô?</h2>
             <ContactForm />
-        </Section>
+    </Section>
     )
 };
 
