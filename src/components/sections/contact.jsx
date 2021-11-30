@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ContactForm from "../contactForm"
 
 const Section = styled.section`
     display: flex;
@@ -7,10 +8,11 @@ const Section = styled.section`
     height: 500px;
 `
 
-const Contact = () => {
+const Contact = () => {    
     return (
         <Section id="contact">
-            <h1>Contact</h1>
+            <h1>Contato</h1>
+            <ContactForm />
         </Section>
     )
 };
