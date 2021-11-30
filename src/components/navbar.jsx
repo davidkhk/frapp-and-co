@@ -62,7 +62,7 @@ const MenuLinks = styled.a`
   transition: all .2s ease-in;
  
   &:hover {
-    color: var(--clr-primary1);
+    color: var(--clr-secondary2);
     background: var(--clr-primary2);
     border-radius: var(--border-radius);
     }
