@@ -1,45 +1,58 @@
-const express = require("express");
+const express = require('express');
+const router = express.Router();
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
+
 const app = express();
-
-const bodyparser = require("body-parser");
-const cors = require("cors");
-const nodemailer = require("nodemailer");
-
-app.use(bodyparser.urlencoded({extended: true}))
-app.use(bodyparser.json());
-
 app.use(cors());
+app.use(express.json());
+app.use('/', router);
+app.listen(5000, () => console.log('Server Running'));
 
-app.post("/send_mail", cors(), async(req, res) => {
-    let {text} = req.body
-    const transport = nodemailer.createTransport({
-        host: process.env.MAIL_HOST,
-        port: process.env.MAIL_PORT,
-        auth: {
-            user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PASS
-        }
-    })
+let contactEmail = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: process.env.EMAIL,
+      pass: process.env.WORD,
+      clientId: process.env.OAUTH_CLIENTID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+    }
+   });
+  
+  contactEmail.verify((error) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Ready to Send');
+    }
+  });
 
-    await transport.sendMail({
-        from: process.env.MAIL_FROM,
-        to: "davidkhk@gmail.com",
-        subject: "test email",
-        html: `<div style="
-        border: 1px solid black;
-        padding: 20px;
-        font-family: sans-serif;
-        line-height:2;
-        font-size: 20px;
-        ">
-        <h2>Here is your email</h2>
-        <p>${text}</p>
-        </div>
-        `
-    })
+  contactEmail.verify((err, success) => {
+    err
+      ? console.log(err)
+      : console.log(`=== Server is ready to take messages: ${success} ===`);
+   });
 
-})
-
-app.listen((process.env.PORT || 4000, () => {
-    console.log("Server is listening on port 4000")
-}));
+  router.post('/contact', (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const message = req.body.message; 
+    const mail = {
+      from: name,
+      to: process.env.EMAIL,
+      subject: 'Contact Form Submission',
+      html: `<p>Name: ${name}</p>
+             <p>Email: ${email}</p>
+             <p>Message: ${message}</p>`,
+    };
+    contactEmail.sendMail(mail, (error) => {
+      if (error) {
+        res.json({ status: 'Oops! Alguma coisa deu errado. Por favor, tente novamente.' });
+      } else {
+        res.json({ status: `Obrigado, ${name}, pelo email!` });
+      }
+    });
+  });
