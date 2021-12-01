@@ -70,7 +70,10 @@ const ContactForm = () => {
     setStatus('Enviar');
     let result = await response.json();
     alert(result.status);
+    
+    e.target.reset()
   };
+
   return (
     <StyledForm onSubmit={handleSubmit}>
       <>
