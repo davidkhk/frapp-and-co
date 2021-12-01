@@ -5,25 +5,25 @@ import { FaRegCopyright } from 'react-icons/fa';
 const StyledFooter = styled.footer`
   text-align: center;
   justify-content: center;
-  background-color: var(--clr-primary1);
-  border-top: 1px var(--clr-primary2) solid;
+  background-color: var(--clr-primary2);
+  border-top: 1px var(--clr-secondary2) solid;
   padding-block: 1%;
 
   a {
-    color: var(--clr-secondary2);
+    color: var(--clr-primary1);
     text-decoration: none;
     padding: 2px;
     transition: all 0.3s ease-in;
   }
   a:hover {
-    color: var(--clr-primary2);
+    color: var(--clr-primary1);
     background: var(--clr-secondary1);
-    border-radius: var(--border-radius);
-    padding: .3rem;
+    padding: .2rem;
   }
 `
 
 const StyledP = styled.p`
+  color: var(--clr-primary1);
   font-size: 1rem;
   padding-block: .2%;
   margin: 0%;

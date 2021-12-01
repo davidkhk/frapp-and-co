@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
 }
   *::-webkit-scrollbar-thumb {
    background-color: var(--clr-secondary2);
-   border-radius: var(--border-radius);
 }
 
 @font-face {
@@ -49,6 +48,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 3rem;
     color: var(--clr-secondary1);
     margin-top: 100px;
+}
+  h2 {
+    color: var(--clr-primary2);
 }
 `
 

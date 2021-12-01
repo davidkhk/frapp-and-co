@@ -42,8 +42,7 @@ const StyledText = styled.span`
     css`
       color: var(--clr-primary1);
       background-color: var(--clr-primary2);
-      padding: .3rem;
-      border-radius: var(--border-radius);
+      padding: .2rem;
     `}
 `
 
