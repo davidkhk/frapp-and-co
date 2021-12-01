@@ -12,7 +12,6 @@ const StyledForm = styled.form`
     color: var(--clr-secondary2);
     background-color: var(--clr-primary1);
     border: 1px solid var(--clr-primary2);
-    border-radius: var(--border-radius);
     text-align: center;
     font-family: 'Futura', 'Mr Eaves Sans', 'Futura PT Book';
     padding-block: 1%;
@@ -32,7 +31,6 @@ const StyledForm = styled.form`
     border: 1px solid var(--clr-secondary2);
     width: 15%;
     height: 30px;
-    border-radius: var(--border-radius);
     margin-bottom: 10%;
     text-align: center;
     font-family: 'Futura', 'Mr Eaves Sans', 'Futura PT Book';
@@ -82,7 +80,7 @@ const ContactForm = () => {
       </>
       <>
         <label htmlFor='email'></label>
-        <input type='email' id='email' placeholder="Qual é o seu email?" required />
+        <input type='email' id='email' placeholder="E o seu email?" required />
       </>
       <>
         <label htmlFor='message'></label>
