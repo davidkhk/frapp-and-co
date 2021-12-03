@@ -81,11 +81,11 @@ const EffectLilly = styled.figure`
 const Delivery = () => {
     return (
         <Section id="delivery">
-            <h1>Experimente agora e peça!</h1>
+            <h1>Peça e experimente agora!</h1>
             <Grid>
                 <EffectLilly>
                 <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/frapp--co-vila-mariana/609ccaed-7ae4-4579-b661-c23a7ad87105?utm_medium=share" target="_blank" rel="noreferrer">
-                    <img src={IfoodImg} alt="img12"/>
+                    <img src={IfoodImg} alt="Ifood icon"/>
                     <figcaption>
                         <div>
                             <p>Pra quem usa iFood</p>
