@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
   a {
     color: var(--clr-primary1);
     text-decoration: none;
-    padding: 2px;
+    padding: .2rem;
     transition: all 0.3s ease-in;
   }
   a:hover {
