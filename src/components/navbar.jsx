@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LogoImg from '../images/logo.png';
+import LogoImg from '../images/logo-bege.png';
 import { useSpring, animated } from 'react-spring';
 import { FaBars, FaAngleDoubleDown } from 'react-icons/fa';
 
@@ -12,7 +12,8 @@ const AnimatedNav = styled(animated.nav)`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--clr-primary1);
+  background-color: var(--clr-primary2);
+  border-bottom: 1px var(--clr-secondary2) solid;
 `;
 
 const Logo = styled.div`
@@ -20,8 +21,8 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   width: 30px;
-  height: 50px;
-  margin: 2% 10%;
+  height: 30px;
+  margin: 1rem 2%;
 `
 
 const Hamburger = styled.div`
@@ -37,7 +38,7 @@ const Hamburger = styled.div`
 `;
 
 const Menu = styled.div`
-  margin-right: 10%;
+  margin-right: 2%;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -58,12 +59,13 @@ const MenuLinks = styled.a`
   padding: .3rem;
   cursor: pointer;
   text-decoration: none;
-  color: var(--clr-primary2);
+  color: var(--clr-primary1);
   transition: all .2s ease-in;
  
   &:hover {
     color: var(--clr-secondary2);
-    background: var(--clr-primary2);
+    background: var(--clr-primary1);
+    padding: .3rem;
     }
 `;
 
