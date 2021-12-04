@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Mocha from '../../images/mocha.jpg';
-import CoffeeBoomerang from '../../images/coffee-boomerang.mov';
+import CoffeeBoomerang from '../../images/coffee-boomerang.gif';
 import Cake from '../../images/cake.jpeg';
 import CoffeeBag from '../../images/coffeebag.jpeg';
 import SaltedCaramel from '../../images/salted-caramel.jpeg';
@@ -59,7 +59,7 @@ function Instagram() {
             <Container>
                 <InstaImg href="https://www.instagram.com/p/CTzU4t8lzxz/" target="_blank" rel='noreferrer'><img src={SaltedCaramel} alt="Frapp salted caramel" /></InstaImg>
                 <InstaImg href="https://www.instagram.com/p/CUfv9ETlBDe/" target="_blank" rel='noreferrer'><img src={Cake} alt="Carrot cake" /></InstaImg>
-                <InstaImg href="https://www.instagram.com/p/CWOMimghDl6/" target="_blank" rel='noreferrer'><video controls autoplay><source src={CoffeeBoomerang} type="video/mov"/></video></InstaImg>
+                <InstaImg href="https://www.instagram.com/p/CWOMimghDl6/" target="_blank" rel='noreferrer'><img src={CoffeeBoomerang} alt="Coffee bag boomerang" /></InstaImg>
                 <InstaImg href="https://www.instagram.com/p/CUX7v1XlA9s/" target="_blank" rel='noreferrer'><img src={StrawberryBanana} alt="Strawberry banana frapp" /></InstaImg>
                 <InstaImg href="https://www.instagram.com/p/CQhYrWfj5d-/" target="_blank" rel='noreferrer'><img src={Mocha} alt="Mocha" /></InstaImg>
                 <InstaImg href="https://www.instagram.com/p/CVJmn5il6iX/" target="_blank" rel='noreferrer'><img src={CoffeeBag} alt="Coffee bag" /></InstaImg>
