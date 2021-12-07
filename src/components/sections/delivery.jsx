@@ -93,7 +93,7 @@ const Delivery = () => {
                     </figcaption>
                 </a>			
                 </EffectLilly>
-                <EffectLilly class="effect-lily">
+                <EffectLilly className="effect-lily">
                 <a href="https://www.rappi.com.br/restaurantes/900522096" target="_blank" rel="noreferrer">
                     <img src={RappiImg} alt="img1"/>
                     <figcaption>
