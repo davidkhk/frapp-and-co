@@ -84,7 +84,7 @@ const ContactForm = () => {
       </>
       <>
         <label htmlFor='message'></label>
-        <textarea textarea id='message' placeholder='Digite sua mensagem!' rows='8' required />
+        <textarea id='message' placeholder='Digite sua mensagem!' rows='8' required />
       </>
       <button type='submit'>{status}</button>
     </StyledForm>
