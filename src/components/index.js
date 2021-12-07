@@ -1,4 +1,4 @@
-export { default as Navbar } from './navbar/navbar';
+export { default as Navbar } from './navbar';
 export { default as Home } from './sections/home';
 export { default as About } from './sections/about';
 export { default as Shop } from './sections/shop';

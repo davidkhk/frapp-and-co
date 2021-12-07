@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LogoImg from '../../images/logo-bege.png';
+import LogoImg from '../images/logo-bege.png';
 import { useSpring, animated } from 'react-spring';
 import { FaBars, FaAngleDoubleDown } from 'react-icons/fa';
-import { IconButton, Badge } from '@material-ui/core';
-import { ShoppingCart } from '@material-ui/icons';
-
-import useStyles from "./styles";
 
 const AnimatedNav = styled(animated.nav)`
   z-index: 500;
   position: fixed;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   background-color: var(--clr-primary2);
@@ -26,7 +22,7 @@ const Logo = styled.div`
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;
-  margin: 1rem 0;
+  margin: 1rem 5%;
 `
 
 const Hamburger = styled.div`
@@ -42,7 +38,7 @@ const Hamburger = styled.div`
 `;
 
 const Menu = styled.div`
-  margin-right: 2%;
+  margin-right: 5%;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -87,8 +83,6 @@ function Navbar() {
       config: {duration: 500}
     });
 
-    const classes = useStyles();
-
     return(
       <AnimatedNav style={props} >
         <Logo></Logo>
@@ -103,13 +97,6 @@ function Navbar() {
           <MenuLinks href='#instagram'>instagram</MenuLinks>
           <MenuLinks href='#contact'>contato</MenuLinks>
         </Menu>
-        <div className={classes.button}>
-          <IconButton aria-label="Show cart items" color="inherit">
-            <Badge badgeContent={2} color="secondary">
-              <ShoppingCart/>
-            </Badge>
-          </IconButton>
-        </div>
       </AnimatedNav>
     );
 }
