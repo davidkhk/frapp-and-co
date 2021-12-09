@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Products from '../products.jsx';
-import ShoppingCartIcon from '../shoppingCartIcon.jsx'
+import ShoppingCartIcon from '../cart/shoppingCartIcon.jsx';
+import Cart from '../cart/cart.jsx';
+import Checkout from '../checkoutForm/checkout/checkout.jsx'
 import { commerce } from '../lib/commerce';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Section = styled.section`
     display: flex;
@@ -26,8 +29,26 @@ const Shop = ({ totalItems }) => {
     }
 
     const handleAddToCart = async (productId, quantity) => {
-        const item = await commerce.cart.add(productId, quantity);
-        setCart(item.cart);
+        const { cart } = await commerce.cart.add(productId, quantity);
+        setCart(cart);
+    }
+
+    const handleUpdateCartQty = async (productId, quantity) => {
+        const { cart } = await commerce.cart.update(productId, { quantity });
+
+        setCart(cart)
+    }
+
+    const handleRemoveFromCart = async (productId) => {
+        const { cart } = await commerce.cart.remove(productId);
+
+        setCart(cart);
+    }
+
+    const handleEmptyCart = async () => {
+        const { cart } = await commerce.cart.empty();
+        
+        setCart(cart);
     }
 
     useEffect(() => {
@@ -36,12 +57,25 @@ const Shop = ({ totalItems }) => {
     }, []);
 
     return (
-        <Section id="shop">
-            <h1>Loja</h1>
-            <ShoppingCartIcon totalItems={cart.total_items} />
-            <Products products={products} onAddToCart={handleAddToCart} />
-        </Section>
-    )
+        <Router>
+            <Section id="shop">
+                <h1>Loja</h1>
+                <ShoppingCartIcon totalItems={cart.total_items} />
+                <Routes>
+                    <Route exact path="/" element={<Products products={products} onAddToCart={handleAddToCart} />} />
+                    <Route exact path="/cart" element={
+                        <Cart
+                        cart={cart}
+                        handleUpdateCartQty={handleUpdateCartQty}
+                        handleRemoveFromCart={handleRemoveFromCart}
+                        handleEmptyCart={handleEmptyCart}
+                        />
+                        } />
+                    <Route exact path="/checkout" element={<Checkout cart={cart} />} />
+                </Routes>
+            </Section>
+        </Router>
+    );
 }
 
 export default Shop;
