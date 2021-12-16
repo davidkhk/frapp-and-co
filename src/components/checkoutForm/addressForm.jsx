@@ -82,7 +82,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                             </Select>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <InputLabel>Shipping Options</InputLabel>
+                            <InputLabel>Envio</InputLabel>
                             <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                                 {options.map((option) => (
                                     <MenuItem key={option.id} value={option.id}>{option.label}</MenuItem>

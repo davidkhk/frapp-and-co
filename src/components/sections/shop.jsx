@@ -17,6 +17,8 @@ const Section = styled.section`
 const Shop = ({ totalItems }) => {    
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
+    const [order, setOrder] = useState({})
+    const [errorMessage, setErrorMessage] = useState('');
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
@@ -51,6 +53,23 @@ const Shop = ({ totalItems }) => {
         setCart(cart);
     }
 
+    const refreshCart = async () => {
+        const newCart = await commerce.cart.refresh();
+
+        setCart(newCart);
+    }
+
+    const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+        try {
+            const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
+
+            setOrder(incomingOrder);
+            refreshCart();
+        } catch (error) {
+            setErrorMessage(error.data.error.message);
+        }
+    }
+
     useEffect(() => {
         fetchProducts();
         fetchCart();
@@ -71,7 +90,14 @@ const Shop = ({ totalItems }) => {
                         handleEmptyCart={handleEmptyCart}
                         />
                         } />
-                    <Route exact path="/checkout" element={<Checkout cart={cart} />} />
+                    <Route exact path="/checkout" element={
+                        <Checkout
+                            cart={cart}
+                            order={order}
+                            onCaptureCheckout={handleCaptureCheckout}
+                            error={errorMessage}    
+                        />}
+                    />
                 </Routes>
             </Section>
         </Router>
