@@ -2,11 +2,14 @@ import React, {  useState, useEffect } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import FormInput from './customTextField.jsx'
+
+import FormInput from './formInput.jsx';
 
 import { commerce } from '../lib/commerce';
 
 const AddressForm = ({ checkoutToken, next }) => {
+    const methods = useForm();
+
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingCountry, setShippingCountry] = useState('');
     const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -14,8 +17,6 @@ const AddressForm = ({ checkoutToken, next }) => {
     const [shippingOptions, setShippingOptions] = useState([]);
     const [shippingOption, setShippingOption] = useState('');
     
-    const methods = useForm();
-
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }))
     const subdivisions = Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name }))
     const options = shippingOptions.map((sO) => ({ id: sO.id, label: `${sO.description} - (${sO.price.formatted_with_symbol})` }))
@@ -55,9 +56,9 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     return (
         <>
-            <Typography variant="h6" gutterBottom>Shipping address</Typography>
+            <Typography variant="h6" gutterBottom>Endereço</Typography>
             <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
+                <form onSubmit={methods.handleSubmit((data) => next({...data, shippingCountry, shippingSubdivision, shippingOption}))}>
                     <Grid container spacing={3}>
                         <FormInput name='firstName' label='Nome' />
                         <FormInput name='lastName' label='Sobrenome' />

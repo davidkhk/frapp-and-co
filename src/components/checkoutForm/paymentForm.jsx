@@ -4,9 +4,9 @@ import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js
 import { loadStripe } from '@stripe/stripe-js';
 import Review from './review';
 
-const stripePromise = loadStripe( process.env.REACT_APP_STRIPE_PUBLIC_KEY );
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = ({ checkoutToken, shippingData, backStep, onCaptureCheckout, nextStep }) => {
+const PaymentForm = ({ checkoutToken, shippingData, backStep, handleCaptureCheckout, nextStep }) => {
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault();
 
@@ -15,7 +15,7 @@ const PaymentForm = ({ checkoutToken, shippingData, backStep, onCaptureCheckout,
         const cardElement = elements.getElement(CardElement);
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement });
-
+        
         if(error) {
             console.log(error);
         } else {
@@ -39,7 +39,7 @@ const PaymentForm = ({ checkoutToken, shippingData, backStep, onCaptureCheckout,
                 }
             }
 
-            onCaptureCheckout(checkoutToken.id, orderData);
+            handleCaptureCheckout(checkoutToken.id, orderData);
 
             nextStep();
             
@@ -50,7 +50,7 @@ const PaymentForm = ({ checkoutToken, shippingData, backStep, onCaptureCheckout,
         <>
             <Review checkoutToken={checkoutToken} />
             <Divider />
-            <Typography variant="h6" gutterbottom style={{ margin: '20px 0' }}>Método de pagamento</Typography>
+            <Typography variant="h6" gutterBottom style={{ margin: '20px 0' }}>Método de pagamento</Typography>
             <Elements stripe={stripePromise}>
                 <ElementsConsumer>
                     {({ elements, stripe }) => (
@@ -58,7 +58,7 @@ const PaymentForm = ({ checkoutToken, shippingData, backStep, onCaptureCheckout,
                             <CardElement />
                             <br /> <br />
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <Button variant="outlined" onclick={backStep}>Voltar</Button>
+                                <Button variant="outlined" onClick={backStep}>Voltar</Button>
                                 <Button type="submit" variant="contained" disabled={!stripe} color="primary">
                                     Pagar { checkoutToken.live.subtotal.formatted_with_symbol }
                                 </Button>
