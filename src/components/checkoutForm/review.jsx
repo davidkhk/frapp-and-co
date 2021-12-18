@@ -1,10 +1,10 @@
 import React from 'react';
-import { Typography, List, ListItem, ListItemText } from '@material-ui/core'
+import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
 
 const Review = ({ checkoutToken }) => {
     return (
         <>
-            <Typography variant='h6' gutterbottom>Resumo do pedido</Typography>
+            <Typography variant='h6' gutterBottom>Resumo do pedido</Typography>
             <List disablePadding>
                 {checkoutToken.live.line_items.map((product) => (
                     <ListItem style={{ padding: '10px 0'}} key={product.name}>

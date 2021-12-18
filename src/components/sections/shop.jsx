@@ -81,7 +81,7 @@ const Shop = ({ totalItems }) => {
                 <h1>Loja</h1>
                 <ShoppingCartIcon totalItems={cart.total_items} />
                 <Routes>
-                    <Route exact path="/" element={<Products products={products} onAddToCart={handleAddToCart} />} />
+                    <Route exact path="/" element={<Products products={products} handleAddToCart={handleAddToCart} />} />
                     <Route exact path="/cart" element={
                         <Cart
                         cart={cart}
@@ -94,7 +94,7 @@ const Shop = ({ totalItems }) => {
                         <Checkout
                             cart={cart}
                             order={order}
-                            onCaptureCheckout={handleCaptureCheckout}
+                            handleCaptureCheckout={handleCaptureCheckout}
                             error={errorMessage}    
                         />}
                     />
