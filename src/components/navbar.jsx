@@ -38,7 +38,7 @@ const Hamburger = styled.div`
 `;
 
 const Menu = styled.div`
-  margin-right: 5%;
+  padding-right: 5%;
   display: flex;
   align-items: flex-end;
   position: relative;
