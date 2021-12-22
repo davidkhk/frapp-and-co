@@ -33,10 +33,7 @@ const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
 
     const next = (data) => {
         setShippingData(data);
-
-        console.log(shippingData);
-
-        // nextStep();
+        nextStep();
     };
 
     let Confirmation = () => order.customer ? (

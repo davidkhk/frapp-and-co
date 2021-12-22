@@ -14,7 +14,7 @@ const Section = styled.section`
     justify-content: center;
 `
 
-const Shop = ({ totalItems }) => {    
+const Shop = () => {    
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({})
@@ -38,7 +38,7 @@ const Shop = ({ totalItems }) => {
     const handleUpdateCartQty = async (productId, quantity) => {
         const { cart } = await commerce.cart.update(productId, { quantity });
 
-        setCart(cart)
+        setCart(cart);
     }
 
     const handleRemoveFromCart = async (productId) => {
@@ -84,10 +84,10 @@ const Shop = ({ totalItems }) => {
                     <Route exact path="/" element={<Products products={products} handleAddToCart={handleAddToCart} />} />
                     <Route exact path="/cart" element={
                         <Cart
-                        cart={cart}
-                        handleUpdateCartQty={handleUpdateCartQty}
-                        handleRemoveFromCart={handleRemoveFromCart}
-                        handleEmptyCart={handleEmptyCart}
+                            cart={cart}
+                            handleUpdateCartQty={handleUpdateCartQty}
+                            handleRemoveFromCart={handleRemoveFromCart}
+                            handleEmptyCart={handleEmptyCart}
                         />
                         } />
                     <Route exact path="/checkout" element={

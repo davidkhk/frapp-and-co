@@ -2,7 +2,6 @@ import React, {  useState, useEffect } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-
 import FormInput from './formInput.jsx';
 
 import { commerce } from '../lib/commerce';
@@ -60,12 +59,12 @@ const AddressForm = ({ checkoutToken, next }) => {
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit((data) => next({...data, shippingCountry, shippingSubdivision, shippingOption}))}>
                     <Grid container spacing={3}>
-                        <FormInput name='firstName' label='Nome' />
-                        <FormInput name='lastName' label='Sobrenome' />
-                        <FormInput name='address1' label='Endereço' />
-                        <FormInput name='email' label='Email' />
-                        <FormInput name='city' label='Cidade' />
-                        <FormInput name='zip' label='CEP' />
+                        <FormInput name='firstName' label='Nome'/>
+                        <FormInput name='lastName' label='Sobrenome'/>
+                        <FormInput name='address1' label='Endereço'/>
+                        <FormInput name='email' label='Email'/>
+                        <FormInput name='city' label='Cidade'/>
+                        <FormInput name='zip' label='CEP'/>
                         <Grid item xs={12} sm={6}>
                             <InputLabel>País</InputLabel>
                             <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
