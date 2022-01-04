@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Products from '../products.jsx';
-import ShoppingCartIcon from '../cart/shoppingCartIcon.jsx';
+// import ShoppingCartIcon from '../cart/shoppingCartIcon.jsx';
 import Cart from '../cart/cart.jsx';
 import Checkout from '../checkoutForm/checkout/checkout.jsx'
 import { commerce } from '../lib/commerce';
@@ -79,7 +79,7 @@ const Shop = () => {
         <Router>
             <Section id="shop">
                 <h1>Loja</h1>
-                <ShoppingCartIcon totalItems={cart.total_items} />
+                {/* <ShoppingCartIcon totalItems={cart.total_items} /> */}
                 <Routes>
                     <Route exact path="/" element={<Products products={products} handleAddToCart={handleAddToCart} />} />
                     <Route exact path="/cart" element={
