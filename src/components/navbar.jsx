@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LogoImg from '../images/logo-bege.png';
+import ShoppingCartIcon from './cart/shoppingCartIcon.jsx';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { FaBars, FaAngleDoubleDown } from 'react-icons/fa';
 
@@ -22,7 +24,7 @@ const Logo = styled.div`
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;
-  margin: 1rem 5%;
+  margin: 1rem;
 `
 
 const Hamburger = styled.div`
@@ -69,7 +71,7 @@ const MenuLinks = styled.a`
     }
 `;
 
-function Navbar() {
+const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     
     function handleClick() {
@@ -84,20 +86,23 @@ function Navbar() {
     });
 
     return(
-      <AnimatedNav style={props} >
-        <Logo></Logo>
-        <Hamburger onClick={handleClick}>
-          {isOpen ? <FaAngleDoubleDown/> : <FaBars/>}
-        </Hamburger>
-        <Menu isOpen={isOpen}>
-          <MenuLinks href='#home'>início</MenuLinks>
-          <MenuLinks href='#about'>sobre</MenuLinks>
-          <MenuLinks href='#shop'>loja</MenuLinks>
-          <MenuLinks href='#delivery'>peça!</MenuLinks>
-          <MenuLinks href='#instagram'>instagram</MenuLinks>
-          <MenuLinks href='#contact'>contato</MenuLinks>
-        </Menu>
-      </AnimatedNav>
+      <Router >
+        <AnimatedNav style={props} >
+          <Logo></Logo>
+          <Hamburger onClick={handleClick}>
+            {isOpen ? <FaAngleDoubleDown/> : <FaBars/>}
+          </Hamburger>
+          <Menu isOpen={isOpen}>
+            <MenuLinks href='#home'>início</MenuLinks>
+            <MenuLinks href='#about'>sobre</MenuLinks>
+            <MenuLinks href='#shop'>loja</MenuLinks>
+            <MenuLinks href='#delivery'>peça!</MenuLinks>
+            <MenuLinks href='#instagram'>instagram</MenuLinks>
+            <MenuLinks href='#contact'>contato</MenuLinks>
+          </Menu>
+          <ShoppingCartIcon />
+        </AnimatedNav>
+      </Router>
     );
 }
 
