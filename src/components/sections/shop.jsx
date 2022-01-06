@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Products from '../products.jsx';
-// import ShoppingCartIcon from '../cart/shoppingCartIcon.jsx';
+import ShoppingCartIcon from '../cart/shoppingCartIcon.jsx';
 import Cart from '../cart/cart.jsx';
 import Checkout from '../checkoutForm/checkout/checkout.jsx'
 import { commerce } from '../lib/commerce';
@@ -12,6 +12,18 @@ const Section = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+`
+
+const TitleContainer = styled.div`
+    h1 {
+        margin-left: 46%;
+    }
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
 `
 
 const Shop = () => {    
@@ -78,8 +90,10 @@ const Shop = () => {
     return (
         <Router>
             <Section id="shop">
-                <h1>Loja</h1>
-                {/* <ShoppingCartIcon totalItems={cart.total_items} /> */}
+                <TitleContainer>
+                    <h1>Loja</h1>
+                    <ShoppingCartIcon totalItems={cart.total_items} />
+                </TitleContainer>
                 <Routes>
                     <Route exact path="/" element={<Products products={products} handleAddToCart={handleAddToCart} />} />
                     <Route exact path="/cart" element={
