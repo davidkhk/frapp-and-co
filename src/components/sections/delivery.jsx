@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import IfoodImg from '../../images/ifood-icon.png';
-import RappiImg from '../../images/rappi-icon.png';
+import IfoodImg from '../../assets/ifood-icon.png';
+import RappiImg from '../../assets/rappi-icon.png';
 
 const Section = styled.section`
     display: flex;
@@ -98,7 +98,7 @@ const Delivery = () => {
                     <img src={RappiImg} alt="img1"/>
                     <figcaption>
                         <div>
-                            <p>ou pra quem usa Rappi</p>
+                            <p>ou pra quem prefere Rappi</p>
                         </div>
                     </figcaption>
                 </a>			
