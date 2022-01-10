@@ -7,7 +7,6 @@ const StyledFooter = styled.footer`
   justify-content: center;
   background-color: var(--clr-primary2);
   border-top: 1px var(--clr-secondary2) solid;
-  padding-block: 1%;
 
   a {
     color: var(--clr-primary1);

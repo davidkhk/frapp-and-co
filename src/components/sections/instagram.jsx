@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Mocha from '../../images/mocha.jpg';
-import CoffeeBoomerang from '../../images/coffee-boomerang.gif';
-import Cake from '../../images/cake.jpeg';
-import CoffeeBag from '../../images/coffeebag.jpeg';
-import SaltedCaramel from '../../images/salted-caramel.jpg';
-import StrawberryBanana from '../../images/strawberry-banana.jpeg';
+import Mocha from '../../assets/mocha.jpg';
+import CoffeeBoomerang from '../../assets/coffee-boomerang.gif';
+import Cake from '../../assets/cake.jpeg';
+import CoffeeBag from '../../assets/coffeebag.jpeg';
+import SaltedCaramel from '../../assets/salted-caramel.jpg';
+import StrawberryBanana from '../../assets/strawberry-banana.jpeg';
 import { FaInstagram } from 'react-icons/fa';
 
 const Section = styled.div`

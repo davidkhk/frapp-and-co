@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LogoImg from '../images/logo-bege.png';
+import LogoImg from '../assets/logo-bege.png';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import { FaBars, FaAngleDoubleDown } from 'react-icons/fa';
@@ -80,7 +80,7 @@ const Navbar = () => {
     const props = useSpring({
       from: {opacity: 0},
       to: {opacity: 1},
-      delay: 2000,
+      delay: 1000,
       config: {duration: 500}
     });
 

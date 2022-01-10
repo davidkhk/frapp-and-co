@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Picture1 from '../../images/about-1.JPG';
-import Picture2 from '../../images/about-2.JPG';
+import Picture1 from '../../assets/about-1.JPG';
+import Picture2 from '../../assets/about-2.JPG';
 
 
 const Section = styled.section`
