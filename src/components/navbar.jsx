@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import LogoImg from '../assets/logo-bege.png';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
 import { FaBars, FaAngleDoubleDown } from 'react-icons/fa';
 
-const AnimatedNav = styled(animated.nav)`
+const StyledNav = styled.nav`
   z-index: 500;
   position: fixed;
   width: 100%;
@@ -77,19 +76,12 @@ const Navbar = () => {
         setIsOpen(!isOpen)
     };
 
-    const props = useSpring({
-      from: {opacity: 0},
-      to: {opacity: 1},
-      delay: 1000,
-      config: {duration: 500}
-    });
-
     return(
       <Router >
-        <AnimatedNav style={props} >
+        <StyledNav >
           <Logo></Logo>
           <Hamburger onClick={handleClick}>
-            {isOpen ? <FaAngleDoubleDown/> : <FaBars/>}
+            {isOpen ? <FaAngleDoubleDown fontSize="large"/> : <FaBars fontSize="large"/>}
           </Hamburger>
           <Menu isOpen={isOpen}>
             <MenuLinks href='#home'>início</MenuLinks>
@@ -99,7 +91,7 @@ const Navbar = () => {
             <MenuLinks href='#instagram'>instagram</MenuLinks>
             <MenuLinks href='#contact'>contato</MenuLinks>
           </Menu>
-        </AnimatedNav>
+        </StyledNav>
       </Router>
     );
 }

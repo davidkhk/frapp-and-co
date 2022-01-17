@@ -15,10 +15,10 @@ const GlobalStyle = createGlobalStyle`
    height: 8px;
 }
   *::-webkit-scrollbar-track {
-   background: var(--clr-primary1);
+    background-color: var(--clr-primary1);
 }
   *::-webkit-scrollbar-thumb {
-   background-color: var(--clr-secondary2);
+    background-color: var(--clr-secondary2);
 }
 
 @font-face {
@@ -38,16 +38,15 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
 }
   body {
+    margin: 0;
     font-family: 'FuturaLT';
     color: var(--clr-secondary2);
     background-color: var(--clr-primary1);
-    margin: 0;
-}
+  }
   h1 {
     font-family: 'FuturaBold';
     font-size: 3rem;
-    color: var(--clr-secondary1);
-    margin-top: 100px;
+    margin-top: 80px;
 }
   h2 {
     color: var(--clr-primary2);

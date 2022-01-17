@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Zoom from 'react-reveal/Zoom';
 import HomeImg from '../../assets/home-2.jpg'
 
 const Section = styled.section`
@@ -8,32 +9,31 @@ const Section = styled.section`
     align-items: center;
     height: 100vh;
 `;
-const Container = styled.div`
+
+
+const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
+    background-image: url(${HomeImg});
+    background-size: cover;
     width: 90%;
     height: 80%;
-    margin-top: 5%;
 
-    img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        opacity: .8;
-    }
     h1 {
-        position: absolute;
+        font-size: 3.5rem;
     }
-`
+`;
 
 const Home = () => {
     return (
         <Section id="home">
-            <Container>
-                <img src={HomeImg} alt="Frapp & Co." />
+            <ImgContainer>
+            <Zoom>
                 <h1>Uma dose de alegria no seu dia.</h1>
-            </Container>
+            </Zoom>
+            </ImgContainer>  
         </Section>
     )
 }
