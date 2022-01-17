@@ -41,8 +41,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'FuturaLT';
     color: var(--clr-secondary2);
-    background-color: var(--clr-primary1);
-  }
+    background-image: linear-gradient(to right bottom, #f0dcbe, #efd7b2, #eed1a5, #eccc99, #ebc68d, #ebc68d, #ebc68d, #ebc68d, #eccc99, #eed1a5, #efd7b2, #f0dcbe);
+} 
   h1 {
     font-family: 'FuturaBold';
     font-size: 3rem;
