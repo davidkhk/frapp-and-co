@@ -9,6 +9,14 @@ const Section = styled.section`
     justify-content: center;
     align-items: center;
 `
+const WorkingHours = styled.div`
+    color: var(--clr-primary2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+`
 const Grid = styled.div`
 	display: flex;
     flex-direction: row;
@@ -82,6 +90,12 @@ const Delivery = () => {
     return (
         <Section id="delivery">
             <h1>Peça e experimente agora!</h1>
+            <WorkingHours>
+                <h4>Horário de funcionamento:</h4>
+                <span>Segunda à sexta: 9h:00 às 18h:00</span>
+                <span>Sábados: 10h:30 às 17h:30</span>
+                <span>Domingos e feriados: fechado</span>
+            </WorkingHours>
             <Grid>
                 <EffectLilly>
                 <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/frapp--co-vila-mariana/609ccaed-7ae4-4579-b661-c23a7ad87105?utm_medium=share" target="_blank" rel="noreferrer">

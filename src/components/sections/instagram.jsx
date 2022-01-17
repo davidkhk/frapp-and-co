@@ -26,7 +26,7 @@ const InstaImg = styled.a`
     align-items: center;
     width: 300px;
     height: 300px;
-    border: 5px var(--clr-primary1) solid;
+    padding: 5px;
 
     img {
         object-fit: cover;
@@ -44,7 +44,7 @@ const InstaImg = styled.a`
     &:hover {
         img {
             transition: all .2s ease-in;
-            opacity: .3;
+            opacity: .5;
         }
         div {
             transition: all .2s ease-in;
