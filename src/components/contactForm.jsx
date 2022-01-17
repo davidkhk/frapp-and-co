@@ -47,46 +47,14 @@ const StyledForm = styled.form`
 }
 `
 
-const ContactForm = () => {
-  const [status, setStatus] = useState('Enviar');
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('Enviando...');
-    const { name, email, message } = e.target.elements;
-    let details = {
-      name: name.value,
-      email: email.value,
-      message: message.value,
-    };
-    let response = await fetch('http://localhost:5000/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(details),
-    });
-    setStatus('Enviar');
-    let result = await response.json();
-    alert(result.status);
+const ContactForm = () => {  
     
-    e.target.reset()
-  };
-
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <>
-        <label htmlFor='name'></label>
-        <input type='text' id='name' placeholder="Qual é o seu nome?" required />
-      </>
-      <>
-        <label htmlFor='email'></label>
-        <input type='email' id='email' placeholder="E o seu email?" required />
-      </>
-      <>
-        <label htmlFor='message'></label>
-        <textarea id='message' placeholder='Digite sua mensagem!' rows='8' required />
-      </>
-      <button type='submit'>{status}</button>
+    <StyledForm onSubmit={}>
+        <input onChange={} type="text" id='name' placeholder="Qual é o seu nome?" value={mailerState.name} required />
+        <input onChange={} type="email" id='email' placeholder="E o seu email?" value={mailerState.email} required />
+        <textarea onChange={} id="message" placeholder='Digite sua mensagem!' rows='8' value={mailerState.message} required />
+        <button type='submit'>Enviar</button>
     </StyledForm>
   );
 };

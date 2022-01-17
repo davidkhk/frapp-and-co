@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import Fade from 'react-reveal/Fade';
 import Picture1 from '../../assets/about-1.JPG';
 import Picture2 from '../../assets/about-2.JPG';
 
@@ -16,14 +17,15 @@ const Section = styled.section`
 
 const Container1 = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     width: 90%;
 `
 
 const Img1 = styled.img`
     object-fit: contain;
-    width: 30%;
-`
+    width: 75%;
+`;
 
 const Paragraph = styled.div`
     margin-inline: 10%;
@@ -32,7 +34,8 @@ const Paragraph = styled.div`
         color: var(--clr-primary2);
         text-align: center;
     }
-`
+`;
+
 const StyledText = styled.span`
     font-family: 'FuturaBold';
     color: var(--clr-secondary2);
@@ -55,15 +58,17 @@ const Container2 = styled.div`
 
 const Img2 = styled.img`
     object-fit: contain;
-    width: 30%;
+    width: 70%;
     margin-inline: 10%;
 `
 
 const About = () => {
+    
     return (
-        <Section id="about">
-            <h1>Sobre nós</h1>
-            <Container1>
+    <Section id="about">
+        <h1>Sobre nós</h1>
+        <Container1>
+            <Fade left>
                 <Paragraph>
                     <p>Para nós, <StyledText>viver feliz</StyledText> é a coisa mais bonita que existe. Acreditamos que encontrar felicidade nas coisas pequenas e momentos inesperados do dia a dia é o segredo de uma vida feliz.</p>
                     <p>Porém, sabemos que muitas vezes isso não é a coisa mais fácil de se ter.</p>
@@ -73,17 +78,24 @@ const About = () => {
                     <p>Seja o que for, que cada gole de Frapp ou café, mordida de bolo ou cookie, seja um gatilho para você parar, e antes de qualquer coisa se lembrar de apreciar a vida da melhor maneira possível, <StyledText>feliz</StyledText>.</p>
                     <p>Estamos aqui para você. <StyledText>Conta com a gente!</StyledText></p>
                 </Paragraph>
+            </Fade>
+            <Fade right>
                 <Img1 src={Picture1} alt="Serving cup" />
-            </Container1>
-            <h2>Por trás da Frapp & Co.</h2>
-            <Container2>
+            </Fade>
+        </Container1>
+        <h2>Por trás da Frapp & Co.</h2>
+        <Container2>
+            <Fade left>
                 <Img2 src={Picture2} alt="Team picture" />
+            </Fade>
+            <Fade right>
                 <Paragraph>
                     <p>A <StyledText strong>Frapp & Co.</StyledText> é do bairro, uma empresa pequena e familiar. Abrimos em maio de 2020 no meio de uma pandemia e crise econômica mundial. Somos um casal que decidiu realizar um sonho de empreender e com a torcida de muitos amigos e familiares abrimos a loja.</p>
                     <p>Hoje temos na nossa equipe a Edna, nossa querida amiga e companheira que nos ajuda em tudo!</p>
                 </Paragraph>
-            </Container2>
-        </Section>
+            </Fade>
+        </Container2>
+    </Section>
     )
 }
 

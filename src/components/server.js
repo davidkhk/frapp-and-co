@@ -1,58 +1,49 @@
 const express = require('express');
-const router = express.Router();
-const cors = require('cors');
 const nodemailer = require('nodemailer');
+const app = express();
 require('dotenv').config();
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use('/', router);
-app.listen(5000, () => console.log('Server Running'));
+const { google } = require('googleapis');
 
-let contactEmail = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      type: 'OAuth2',
-      user: process.env.REACT_APP_EMAIL,
-      pass: process.env.REACT_APP_WORD,
-      clientId: process.env.REACT_APP_OAUTH_CLIENTID,
-      clientSecret: process.env.REACT_APP_OAUTH_CLIENT_SECRET,
-      refreshToken: process.env.REACT_APP_OAUTH_REFRESH_TOKEN,
-    }
-   });
-  
-  contactEmail.verify((error) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Ready to Send');
-    }
-  });
+const port = 3001;
+app.listen(port, () => {
+ console.log(`Server is running on port: ${port}`);
+});
 
-  contactEmail.verify((err, success) => {
-    err
-      ? console.log(err)
-      : console.log(`=== Server is ready to take messages: ${success} ===`);
-   });
+const oAuth2Client = new google.auth.OAuth2(process.env.OAUTH_CLIENTID, process.env.OAUTH_CLIENT_SECRET, "https://developer.google.com/oauthplayground")
+oAuth2Client.setCredentials({ refresh_token: process.env.OAUTH_REFRESH_TOKEN })
 
-  router.post('/contact', (req, res) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    const message = req.body.message; 
-    const mail = {
-      from: name,
-      to: process.env.EMAIL,
-      subject: 'Contact Form Submission',
-      html: `<p>Name: ${name}</p>
-             <p>Email: ${email}</p>
-             <p>Message: ${message}</p>`,
-    };
-    contactEmail.sendMail(mail, (error) => {
-      if (error) {
-        res.json({ status: 'Oops! Alguma coisa deu errado. Por favor, tente novamente.' });
-      } else {
-        res.json({ status: `Obrigado, ${name}, pelo email!` });
+async function sendMail() {
+  try {
+    const accessToken = await oAuth2Client.getAccessToken()
+
+    const transport = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: process.env.EMAIL,
+        clientId: process.env.OAUTH_CLIENTID,
+        clientSecret: process.env.OAUTH_CLIENT_SECRET,
+        refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+        accessToken: accessToken
       }
-    });
-  });
+    })
+
+    const mailOptions = {
+      from: 'davidkhk@gmail',
+      to: process.env.EMAIL,
+      subject: 'TEST subject',
+      text: 'TEST message',
+      html: '<h1>TEST message</h1>',
+    }
+
+    const result = await transport.sendMail(mailOptions)
+    return result
+
+  } catch (error) {
+    return error
+  }
+}
+
+sendMail().then(result => console.log('Email is sent', result))
+.catch(error => console.log(error.message));

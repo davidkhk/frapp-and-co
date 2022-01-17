@@ -39,7 +39,7 @@ function Footer(){
     return (
       <StyledFooter>
         <StyledP><a href='https://github.com/davidkhk/frapp-and-co' target='_blank' rel='noreferrer'>Designed & built by David Kang</a></StyledP>
-        <StyledP year><FaRegCopyright /> {year}</StyledP>
+        <StyledP year><FaRegCopyright fontSize="small" /> {year}</StyledP>
       </StyledFooter>
     )}
 
