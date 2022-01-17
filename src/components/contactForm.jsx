@@ -48,13 +48,54 @@ const StyledForm = styled.form`
 `
 
 const ContactForm = () => {  
-    
+  const [mailerState, setMailerState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  function handleStateChange(e) {
+    setMailerState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
+  const submitEmail = async (e) => {
+    e.preventDefault();
+    console.log({ mailerState });
+    const response = await fetch("http://localhost:3001/send", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ mailerState }),
+    })
+    .then((res) => res.json())
+    .then(async (res) => {
+      const resData = await res;
+      console.log(resData);
+      if (resData.status === "success") {
+        alert("Muito obrigado pela mensagem!");
+      } else if (resData.status === "fail") {
+        alert("Oops! Alguma coisa deu errado. Por favor, tente novamente!");
+      }
+    })
+    .then(() => {
+      setMailerState({
+        email: "",
+        name: "",
+        message: "",
+      });
+    });
+};
+
   return (
-    <StyledForm onSubmit={}>
-        <input onChange={} type="text" id='name' placeholder="Qual é o seu nome?" value={mailerState.name} required />
-        <input onChange={} type="email" id='email' placeholder="E o seu email?" value={mailerState.email} required />
-        <textarea onChange={} id="message" placeholder='Digite sua mensagem!' rows='8' value={mailerState.message} required />
-        <button type='submit'>Enviar</button>
+    <StyledForm onSubmit={submitEmail}>
+        <input onChange={handleStateChange} name='name' placeholder="Qual é o seu nome?" value={mailerState.name} required />
+        <input onChange={handleStateChange} name='email' placeholder="E o seu email?" value={mailerState.email} required />
+        <textarea onChange={handleStateChange} name="message" placeholder='Digite sua mensagem!' rows='8' value={mailerState.message} required />
+        <button>Enviar</button>
     </StyledForm>
   );
 };
