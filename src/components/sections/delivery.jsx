@@ -8,6 +8,7 @@ const Section = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 `
 const WorkingHours = styled.div`
     color: var(--clr-primary2);
@@ -20,17 +21,19 @@ const WorkingHours = styled.div`
 const Grid = styled.div`
 	display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: baseline;
+    text-align: center;
     border: .5rem var(--clr-primary2) dotted;
-    position: relative;
-	margin: 0 auto;
-	max-width: 1000px;
-	list-style: none;
-	text-align: center;
+
+    @media (max-width: 800px) {
+        margin-left: 10%;
+        border: none;
+    }
 `
-const EffectLilly = styled.figure`
+const Animation = styled.figure`
     img {
-	max-width: none;
+    margin-left: 15%;
 	width: -webkit-calc(100% + 50px);
 	width: calc(40% + 50px);
 	opacity: 0.7;
@@ -38,7 +41,6 @@ const EffectLilly = styled.figure`
 	transition: opacity 0.35s, transform 0.35s;
 	-webkit-transform: translate3d(-40px,0, 0);
 	transform: translate3d(-40px,0,0);
-    padding-top: 3rem;
     }
 
     a {
@@ -56,7 +58,7 @@ const EffectLilly = styled.figure`
 	padding: 2em;
 	width: 100%;
 	height: 50%;
-}
+    }
 }
     p {
     -webkit-transform: translate3d(0,40px,0);
@@ -97,7 +99,7 @@ const Delivery = () => {
                 <span>Domingos e feriados: fechado</span>
             </WorkingHours>
             <Grid>
-                <EffectLilly>
+                <Animation>
                 <a href="https://www.ifood.com.br/delivery/sao-paulo-sp/frapp--co-vila-mariana/609ccaed-7ae4-4579-b661-c23a7ad87105?utm_medium=share" target="_blank" rel="noreferrer">
                     <img src={IfoodImg} alt="Ifood icon"/>
                     <figcaption>
@@ -106,8 +108,8 @@ const Delivery = () => {
                         </div>
                     </figcaption>
                 </a>			
-                </EffectLilly>
-                <EffectLilly className="effect-lily">
+                </Animation>
+                <Animation>
                 <a href="https://www.rappi.com.br/restaurantes/900522096" target="_blank" rel="noreferrer">
                     <img src={RappiImg} alt="img1"/>
                     <figcaption>
@@ -116,7 +118,7 @@ const Delivery = () => {
                         </div>
                     </figcaption>
                 </a>			
-                </EffectLilly>
+                </Animation>
             </Grid>
         </Section>
     )

@@ -9,8 +9,7 @@ const Section = styled.section`
     justify-content: center;
 
     h2 {
-        color: var(--clr-primary2)
-
+        color: var(--clr-primary2);
     }
 `
 

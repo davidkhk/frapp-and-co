@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Products from '../products.jsx';
 import ShoppingCartIcon from '../cart/shoppingCartIcon.jsx';
 import Cart from '../cart/cart.jsx';
-import Checkout from '../checkoutForm/checkout/checkout.jsx'
+import Checkout from '../checkoutForm/checkout/checkout.jsx';
 import { commerce } from '../lib/commerce';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -16,9 +16,10 @@ const Section = styled.section`
 
 const TitleContainer = styled.div`
     h1 {
-        margin-left: 46%;
+        margin: 80px auto 0 auto;
+        vertical-align: middle;
     }
-    
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;

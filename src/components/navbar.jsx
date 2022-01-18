@@ -32,7 +32,7 @@ const Hamburger = styled.div`
   font-size: 1.5rem;
   padding-inline: 1rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
       display: flex;
   }
 `;
@@ -43,7 +43,7 @@ const Menu = styled.div`
   align-items: flex-end;
   position: relative;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
       overflow: hidden;
       flex-direction: column;
       width: 100%;

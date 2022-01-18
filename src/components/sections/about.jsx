@@ -20,11 +20,25 @@ const Container1 = styled.div`
     align-items: center;
     justify-content: space-evenly;
     width: 90%;
+    
+    @media (max-width: 800px) {
+        flex-wrap: wrap;
+    }
 `
 
 const Img1 = styled.img`
     object-fit: contain;
     width: 75%;
+
+    @media (max-width: 800px) {
+        width: 40%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @media (max-width: 425px) {
+        width: 75%;
+    }
 `;
 
 const Paragraph = styled.div`
@@ -54,12 +68,26 @@ const Container2 = styled.div`
     justify-content: space-evenly;
     align-items: center;
     width: 70%;
+
+    @media (max-width: 800px) {
+        flex-wrap: wrap;
+    }
 `
 
 const Img2 = styled.img`
     object-fit: contain;
     width: 70%;
     margin-inline: 10%;
+
+    @media (max-width: 800px) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    @media (max-width: 425px) {
+        width: 90%;
+    }
 `
 
 const About = () => {

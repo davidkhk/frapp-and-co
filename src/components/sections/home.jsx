@@ -13,9 +13,9 @@ const Section = styled.section`
 
 const ImgContainer = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 5%;
+    justify-content: center;
+    margin-top: 30px;
     background-image: url(${HomeImg});
     background-size: cover;
     width: 90%;
@@ -23,6 +23,10 @@ const ImgContainer = styled.div`
 
     h1 {
         font-size: 3.5rem;
+    }
+
+    @media (max-width: 800px) {
+        background-position: right;
     }
 `;
 
