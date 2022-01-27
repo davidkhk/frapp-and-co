@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ContactForm from '../contactForm';
+import ContactForm from '../contactForm/contactForm';
 
 const Section = styled.section`
     display: flex;
