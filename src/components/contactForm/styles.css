@@ -42,3 +42,11 @@ button:hover {
     background: var(--clr-secondary1);
     border: 1px var(--clr-primary2) solid;
 }
+@media (max-width: 600px) {
+    .input {
+      width: 100%;
+    }
+    .btn {
+        width: 30%;
+    }
+  }
