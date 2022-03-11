@@ -96,7 +96,12 @@ const Shop = () => {
                     <ShoppingCartIcon totalItems={cart.total_items} />
                 </TitleContainer>
                 <Routes>
-                    <Route exact path="/" element={<Products products={products} handleAddToCart={handleAddToCart} />} />
+                    <Route exact path="/" element={
+                        <Products
+                            products={products}
+                            handleAddToCart={handleAddToCart}
+                        />
+                    } />
                     <Route exact path="/cart" element={
                         <Cart
                             cart={cart}
@@ -104,7 +109,7 @@ const Shop = () => {
                             handleRemoveFromCart={handleRemoveFromCart}
                             handleEmptyCart={handleEmptyCart}
                         />
-                        } />
+                    } />
                     <Route exact path="/checkout" element={
                         <Checkout
                             cart={cart}
