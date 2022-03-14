@@ -96,16 +96,12 @@ const Shop = () => {
                     <ShoppingCartIcon totalItems={cart.total_items} />
                 </TitleContainer>
                 <Routes>
-<<<<<<< HEAD
-                    <Route exact path="/" element={<Products products={products} handleAddToCart={handleAddToCart} />} />
-=======
                     <Route exact path="/" element={
                         <Products
                             products={products}
                             handleAddToCart={handleAddToCart}
                         />
                     } />
->>>>>>> f81030aebc18169aec749bbf7c3b51a65fe172df
                     <Route exact path="/cart" element={
                         <Cart
                             cart={cart}
@@ -113,11 +109,7 @@ const Shop = () => {
                             handleRemoveFromCart={handleRemoveFromCart}
                             handleEmptyCart={handleEmptyCart}
                         />
-<<<<<<< HEAD
                         } />
-=======
-                    } />
->>>>>>> f81030aebc18169aec749bbf7c3b51a65fe172df
                     <Route exact path="/checkout" element={
                         <Checkout
                             cart={cart}
