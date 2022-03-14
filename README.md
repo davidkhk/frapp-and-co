@@ -24,6 +24,7 @@ E-commerce projects can take weeks to be built, however, with Commercejs there w
 HTML  
 CSS  
 JAVASCRIPT  
+REACT  
 MATERIAL UI  
 STYLED-COMPONENTS  
 REACT-REVEAL  
