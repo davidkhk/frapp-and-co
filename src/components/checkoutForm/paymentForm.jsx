@@ -19,6 +19,7 @@ const PaymentForm = ({ checkoutToken, nextStep, backStep, shippingData, handleCa
 
     if (error) {
       console.log('[error]', error);
+      alert("Por favor, verifique os dados preenchidos e tente novamente.");
     } else {
       const orderData = {
         line_items: checkoutToken.live.line_items,
