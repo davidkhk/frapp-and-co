@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'FuturaLT';
     color: var(--clr-secondary2);
     background-image: linear-gradient(to right bottom, #f0dcbe, #efd7b2, #eed1a5, #eccc99, #ebc68d, #ebc68d, #ebc68d, #ebc68d, #eccc99, #eed1a5, #efd7b2, #f0dcbe);
-    text-align: center;
+    text-align: left;
   } 
   h1 {
     font-family: 'FuturaBold';
